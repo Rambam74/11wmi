@@ -154,17 +154,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Carrusel Responsivo</title>
+  <title>Carrusel Reducido</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: Arial, sans-serif; background: #f0f0f0; }
+    body { font-family: Arial, sans-serif; background: #f0f0f0; display: flex; justify-content: center; padding: 20px; }
 
     .carousel {
       position: relative;
-      max-width: 100%;
+      width: 50%;           /* ancho reducido a la mitad */
+      max-width: 400px;     /* opcional: no se haga muy grande en pantallas grandes */
       margin: auto;
       overflow: hidden;
       background: #000;
+      border-radius: 10px;
     }
 
     .viewport {
@@ -186,7 +188,7 @@
     }
 
     .slide img {
-      max-width: 50%;   /* tamaño reducido a la mitad */
+      width: 100%;
       height: auto;
       max-height: 80vh;
       object-fit: contain;
@@ -200,29 +202,33 @@
       transform: translateY(-50%);
       background: rgba(0,0,0,0.5);
       border: none;
-      width: 40px; height: 40px;
+      width: 30px; height: 30px;  /* más pequeño */
       border-radius: 50%;
       cursor: pointer;
       display: flex; align-items: center; justify-content: center;
     }
-    .btn svg { width: 20px; height: 20px; fill: #fff; }
-    #prev { left: 10px; }
-    #next { right: 10px; }
+    .btn svg { width: 15px; height: 15px; fill: #fff; }
+    #prev { left: 5px; }
+    #next { right: 5px; }
 
     /* Puntos de navegación */
     .dots {
       position: absolute;
-      bottom: 10px; left: 0; right: 0;
-      display: flex; justify-content: center; gap: 6px;
+      bottom: 5px; left: 0; right: 0;
+      display: flex; justify-content: center; gap: 4px;
     }
     .dot {
-      width: 10px; height: 10px;
+      width: 8px; height: 8px;
       border-radius: 50%;
       border: none;
       background: rgba(255,255,255,0.5);
       cursor: pointer;
     }
     .dot[aria-current="true"] { background: #fff; }
+
+    @media(max-width: 600px){
+      .carousel { width: 80%; }  /* móvil: un poco más ancho para verse bien */
+    }
   </style>
 </head>
 <body>
@@ -273,7 +279,6 @@
 
 </body>
 </html>
-
 
 
     <!-- NAVIGATION -->
