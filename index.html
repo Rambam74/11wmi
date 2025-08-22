@@ -169,14 +169,11 @@
 
     .viewport {
       width: 100%;
-      aspect-ratio: 16/9; /* proporción responsiva */
       position: relative;
     }
 
     .track {
       display: flex;
-      width: 500%;
-      height: 100%;
       transition: transform 0.5s ease;
     }
 
@@ -189,9 +186,11 @@
     }
 
     .slide img {
-      max-width: 100%;
-      max-height: 100%;
-      object-fit: contain; /* asegura que la foto no se corte */
+      width: 100%;
+      height: auto;
+      max-height: 80vh; /* asegura que en móvil no ocupe toda la pantalla */
+      object-fit: contain;
+      display: block;
     }
 
     /* Flechas */
@@ -238,10 +237,12 @@
         <div class="slide"><img src="5.jpg" alt="Foto 5"></div>
       </div>
       <button class="btn" id="prev">
+        <!-- flecha izquierda -->
         <svg viewBox="0 0 24 24"><path d="M15.41 7.41 14 6 8 12l6 6 1.41-1.41L10.83 12z"/></svg>
       </button>
       <button class="btn" id="next">
-        <svg viewBox="0 0 24 24"><path d="M9 6l1.41 1.41L6.83 11H20v2H6.83l3.58 3.59L9 18l-6-6z"/></svg>
+        <!-- flecha derecha -->
+        <svg viewBox="0 0 24 24"><path d="M8.59 16.59 13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>
       </button>
       <div class="dots">
         <button class="dot" data-index="0" aria-current="true"></button>
@@ -274,6 +275,7 @@
 
 </body>
 </html>
+
 
 
     <!-- NAVIGATION -->
