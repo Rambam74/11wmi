@@ -5,385 +5,178 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>11WM Ingeniería</title>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
-    body {
-        font-family: 'Roboto', sans-serif;
-        margin: 0;
-        line-height: 1.6;
-        background-color: #f4f8fb;
-        color: #333;
-    }
+  body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f8fb;
+    color: #333;
+  }
 
-    /* HEADER */
-    header {
-        background: url('https://images.unsplash.com/photo-1563729784475-f5b0415db87e?auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
-        color: white;
-        text-align: center;
-        padding: 100px 20px;
-        position: relative;
-    }
-    header::after {
-        content: "";
-        position: absolute;
-        top: 0; left: 0; right: 0; bottom: 0;
-        background-color: rgba(0,64,128,0.6);
-    }
-    header img, header h1, header p {
-        position: relative;
-        z-index: 1;
-    }
-    header img {
-        width: 120px;
-        height: auto;
-        margin-bottom: 20px;
-    }
+  header {
+    background-color: #0b2a4a;
+    color: white;
+    text-align: center;
+    padding: 50px 20px;
+  }
 
-    /* BOTÓN FLOTANTE */
-    .email-btn {
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        background-color: #004080;
-        color: white;
-        padding: 12px 20px;
-        border-radius: 6px;
-        text-decoration: none;
-        font-weight: bold;
-        z-index: 1000;
-        display: flex;
-        align-items: center;
-        transition: opacity 0.5s, transform 0.5s;
-    }
-    .email-btn i {
-        margin-right: 8px;
-    }
-    .email-btn.hide {
-        opacity: 0;
-        transform: translateY(-20px);
-        pointer-events: none;
-    }
+  header h1 {
+    margin: 0;
+    font-size: 2.5em;
+  }
 
-    /* NAVIGATION */
-    nav {
-        background-color: #004080;
-        display: flex;
-        justify-content: center;
-        padding: 15px 0;
-        flex-wrap: wrap;
-    }
-    nav a {
-        color: white;
-        margin: 0 20px;
-        text-decoration: none;
-        font-weight: bold;
-    }
-    nav a:hover {
-        text-decoration: underline;
-    }
+  header p {
+    margin: 10px 0 0;
+    font-size: 1.2em;
+  }
 
-    /* SECCIONES */
-    section {
-        padding: 60px 20px;
-    }
-    h2 {
-        color: #004080;
-        text-align: center;
-        margin-bottom: 40px;
-    }
+  section {
+    padding: 60px 20px;
+    text-align: center;
+  }
 
-    /* SERVICIOS */
-    .services {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 30px;
-    }
-    .service-card {
-        background: white;
-        width: 280px;
-        border-radius: 12px;
-        padding: 30px 20px;
-        box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-        text-align: center;
-        transition: transform 0.3s, box-shadow 0.3s;
-        min-height: 320px;
-    }
-    .service-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-    }
-    .service-card i {
-        font-size: 74px; /* aumentado al tamaño del logo dinámico */
-        color: #0059b3;
-        margin-bottom: 15px;
-    }
+  .services {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+  }
 
-    /* FORMULARIO */
-    form {
-        max-width: 500px;
-        margin: 0 auto;
-        background: white;
-        padding: 30px;
-        border-radius: 12px;
-        box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-    }
-    form input, form textarea {
-        width: 100%;
-        padding: 12px;
-        margin: 10px 0;
-        border-radius: 6px;
-        border: 1px solid #ccc;
-        font-size: 1em;
-    }
-    form button {
-        background-color: #004080;
-        color: white;
-        padding: 12px 25px;
-        border: none;
-        border-radius: 6px;
-        cursor: pointer;
-        font-size: 1em;
-        margin-top: 10px;
-    }
-    form button:hover {
-        background-color: #0059b3;
-    }
+  .service-card {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: transform 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center; /* centramos todo */
+  }
 
-    /* FOOTER */
-    footer {
-        background-color: #004080;
-        color: white;
-        text-align: center;
-        padding: 25px;
-    }
+  .service-card:hover {
+    transform: translateY(-8px);
+  }
 
-    /* CARRUSEL */
-    .carousel {
-        position: relative;
-        width: 33.33%;
-        max-width: 300px;
-        margin: 40px auto;
-        overflow: hidden;
-        border-radius: 10px;
-    }
-    .track {
-        display: flex;
-        transition: transform 1s ease;
-    }
-    .slide {
-        flex: 0 0 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .slide img {
-        width: 100%;
-        height: auto;
-        display: block;
-        object-fit: contain;
-    }
-    .dots {
-        position: absolute;
-        bottom: 10px;
-        left: 0; right: 0;
-        display: flex;
-        justify-content: center;
-        gap: 6px;
-    }
-    .dot {
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-        border: none;
-        background: rgba(0,0,0,0.3);
-        cursor: pointer;
-    }
-    .dot[aria-current="true"] { background: #000; }
+  .service-card i, 
+  .service-card .icon {
+    font-size: 74px; /* tamaño uniforme */
+    margin-bottom: 20px;
+    color: #0b2a4a;
+    display: inline-block;
+  }
 
-    /* LOGO DINÁMICO */
-    .icon{width:74px; height:74px; margin:0 auto 15px;}
-    .icon svg{width:100%; height:100%; display:block}
-    .stroke{stroke:#004080;}
-    .fill{fill:#004080;}
-    .wave{
-      stroke:#004080;
-      stroke-width:4;
-      fill:none;
-      stroke-linecap:round;
-      stroke-linejoin:round;
-      stroke-dasharray:180;
-      animation: move 4s linear infinite;
-    }
-    @keyframes move{to{stroke-dashoffset:-360}}
+  .service-card h3 {
+    margin-bottom: 15px;
+    font-size: 1.5em;
+    color: #0b2a4a;
+  }
 
-    /* RESPONSIVE */
-    @media(max-width: 700px){
-        .services {
-            flex-direction: column;
-            align-items: center;
-        }
-        nav {
-            flex-direction: column;
-            gap: 10px;
-        }
-        header {
-            padding: 60px 20px;
-        }
-        .carousel { width: 50%; }
-    }
-    @media(max-width: 480px){ 
-        .carousel { width: 80%; }
-    }
+  .service-card p {
+    font-size: 1em;
+    color: #555;
+  }
+
+  /* Logo dinámico Mediciones Dinámicas */
+  .logo-wrap {
+    padding: 28px 36px;
+    border: 1px solid rgba(11,42,74,.2);
+    border-radius: 20px;
+    display: inline-block;
+    margin-bottom: 20px;
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    justify-content: center;
+  }
+  .icon {
+    width: 74px;
+    height: 74px;
+  }
+  .icon svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+  .stroke { stroke: #0b2a4a; }
+  .fill { fill: #0b2a4a; }
+  .wave {
+    stroke: #0b2a4a;
+    stroke-width: 4;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 180;
+    animation: move 4s linear infinite;
+  }
+  @keyframes move { to { stroke-dashoffset: -360; } }
+
+  .brand {
+    color: #0b2a4a;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 800;
+    letter-spacing: .5px;
+    font-size: clamp(22px, 4.2vw, 40px);
+    line-height: 1.05;
+    text-transform: uppercase;
+  }
+  .brand small {
+    display: block;
+    font-weight: 700;
+    font-size: .48em;
+    letter-spacing: 2px;
+    opacity: .9;
+  }
 </style>
 </head>
 <body>
+  <header>
+    <h1>11WM Ingeniería</h1>
+    <p>Soluciones en estructuras con precisión y experiencia</p>
+  </header>
 
-    <!-- BOTÓN FLOTANTE CON ICONO -->
-    <a href="mailto:rodriguez@11wmi.com" class="email-btn">
-        <i class="fas fa-envelope"></i> Enviar correo-e
-    </a>
+  <section>
+    <h2>Nuestros Servicios</h2>
+    <div class="services">
 
-    <!-- HEADER -->
-    <header>
-        <img src="logo.png" alt="Logo 11WM Ingeniería">
-        <h1>11WM Ingeniería</h1>
-        <p>Soluciones profesionales en estructuras y mediciones dinámicas</p>
-    </header>
+      <!-- Cálculo y diseño estructural -->
+      <div class="service-card">
+        <i class="fas fa-building"></i>
+        <h3>Cálculo y Diseño Estructural</h3>
+        <p>Diseño y análisis de estructuras seguras y eficientes.</p>
+      </div>
 
-    <!-- CARRUSEL -->
-    <div class="carousel">
-        <div class="track" id="track">
-            <div class="slide"><img src="1.jpg" alt="Foto 1"></div>
-            <div class="slide"><img src="2.jpg" alt="Foto 2"></div>
-            <div class="slide"><img src="3.jpg" alt="Foto 3"></div>
-            <div class="slide"><img src="4.jpg" alt="Foto 4"></div>
-            <div class="slide"><img src="5.jpg" alt="Foto 5"></div>
+      <!-- Mediciones Dinámicas con logo dinámico -->
+      <div class="service-card">
+        <div class="logo-wrap" role="img" aria-label="Logo de Mediciones Dinámicas">
+          <div class="logo">
+            <div class="icon" aria-hidden="true">
+              <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="46" class="stroke" stroke-width="4" fill="none" />
+                <line x1="18" y1="72" x2="82" y2="72" class="stroke" stroke-width="4" stroke-linecap="round" />
+                <line x1="28" y1="82" x2="28" y2="18" class="stroke" stroke-width="4" stroke-linecap="round" />
+                <path class="wave" d="M 28 60 C 36 40, 44 80, 52 60 S 68 40, 76 60" />
+                <circle cx="52" cy="60" r="4" class="fill" />
+              </svg>
+            </div>
+          </div>
         </div>
-        <div class="dots">
-            <button class="dot" data-index="0" aria-current="true"></button>
-            <button class="dot" data-index="1"></button>
-            <button class="dot" data-index="2"></button>
-            <button class="dot" data-index="3"></button>
-            <button class="dot" data-index="4"></button>
-        </div>
+        <h3>Mediciones Dinámicas</h3>
+        <p>Ingeniería · Datos · Precisión</p>
+      </div>
+
+      <!-- Inspección y supervisión -->
+      <div class="service-card">
+        <i class="fas fa-hard-hat"></i>
+        <h3>Inspección y Supervisión</h3>
+        <p>Control de calidad y seguridad en obras de construcción.</p>
+      </div>
+
     </div>
-
-    <!-- NAVIGATION -->
-    <nav>
-        <a href="#inicio">Inicio</a>
-        <a href="#servicios">Servicios</a>
-        <a href="#nosotros">Nosotros</a>
-        <a href="#contacto">Contacto</a>
-    </nav>
-
-    <!-- HERO / INTRO -->
-    <section id="inicio">
-        <h2>Bienvenido a 11WM Ingeniería</h2>
-        <p style="max-width:700px; margin:0 auto; text-align:center;">
-            Brindamos servicios especializados en cálculo y diseño estructural, así como mediciones dinámicas, asegurando la seguridad y eficiencia de sus proyectos.
-        </p>
-    </section>
-
-    <!-- SERVICES -->
-    <section id="servicios">
-        <h2>Servicios</h2>
-        <div class="services">
-            <div class="service-card">
-                <i class="fas fa-building"></i>
-                <h3>Cálculo y Diseño Estructural</h3>
-                <p>Análisis y diseño de estructuras para todo tipo de edificaciones, cumpliendo con normas vigentes y garantizando seguridad y eficiencia.</p>
-            </div>
-            <div class="service-card">
-                <!-- LOGO DINÁMICO -->
-                <div class="icon" aria-hidden="true">
-                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="50" cy="50" r="46" class="stroke" stroke-width="4" fill="none" />
-                        <line x1="18" y1="72" x2="82" y2="72" class="stroke" stroke-width="4" stroke-linecap="round" />
-                        <line x1="28" y1="82" x2="28" y2="18" class="stroke" stroke-width="4" stroke-linecap="round" />
-                        <path class="wave" d="M 28 60 C 36 40, 44 80, 52 60 S 68 40, 76 60" />
-                        <circle cx="52" cy="60" r="4" class="fill" />
-                    </svg>
-                </div>
-                <h3>Mediciones Dinámicas</h3>
-                <p>Medición del comportamiento de estructuras frente a cargas, vibraciones y sismos, con informes técnicos detallados y recomendaciones.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- ABOUT US -->
-    <section id="nosotros">
-        <h2>Nosotros</h2>
-        <p style="max-width:700px; margin:0 auto; text-align:center;">
-            11WM Ingeniería cuenta con un equipo profesional con amplia experiencia en ingeniería estructural y mediciones dinámicas. Ofrecemos soluciones confiables y eficientes para cada proyecto.
-        </p>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contacto">
-        <h2>Contacto</h2>
-        <p style="text-align:center; margin-bottom:30px;">
-            Envíanos un mensaje directamente desde este formulario y nos pondremos en contacto contigo a la brevedad.
-        </p>
-        <form action="https://formspree.io/f/mrblnygw" method="POST">
-            <input type="text" name="name" placeholder="Tu nombre" required>
-            <input type="email" name="_replyto" placeholder="Tu correo electrónico" required>
-            <textarea name="message" rows="6" placeholder="Escribe tu mensaje aquí" required></textarea>
-            <button type="submit">Enviar mensaje</button>
-        </form>
-        <p style="text-align:center; margin-top:15px;">
-            O contáctanos directamente a 
-            <a href="mailto:rodriguez@11wmi.com">rodriguez@11wmi.com</a>
-        </p>
-    </section>
-
-    <!-- FOOTER -->
-    <footer>
-        <p>&copy; 2025 11WM Ingeniería. Todos los derechos reservados.</p>
-    </footer>
-
-<script>
-// Carrusel
-const track = document.getElementById('track');
-const dots = document.querySelectorAll('.dot');
-let index = 0;
-const total = 5;
-
-function updateCarousel() {
-    track.style.transform = `translateX(-${index*100}%)`;
-    dots.forEach((dot,i) => dot.setAttribute('aria-current', i===index));
-}
-
-function nextSlide() {
-    index = (index + 1) % total;
-    updateCarousel();
-}
-
-setInterval(nextSlide, 5000);
-
-dots.forEach((dot, i) => {
-    dot.addEventListener('click', () => {
-        index = i;
-        updateCarousel();
-    });
-});
-
-updateCarousel();
-
-// Botón flotante
-let lastScroll = 0;
-const emailBtn = document.querySelector('.email-btn');
-
-window.addEventListener('scroll', () => {
-    const currentScroll = window.pageYOffset;
-    if(currentScroll > lastScroll){
-        emailBtn.classList.add('hide');
-    } else {
-        emailBtn.classList.remove('hide');
-    }
-    lastScroll = currentScroll;
-});
-</script>
-
+  </section>
 </body>
 </html>
