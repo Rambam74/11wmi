@@ -30,9 +30,15 @@
         background-color: rgba(0,64,128,0.6);
     }
 
-    header h1, header p {
+    header img, header h1, header p {
         position: relative;
         z-index: 1;
+    }
+
+    header img {
+        width: 120px;
+        height: auto;
+        margin-bottom: 20px;
     }
 
     nav {
@@ -40,6 +46,7 @@
         display: flex;
         justify-content: center;
         padding: 15px 0;
+        flex-wrap: wrap;
     }
 
     nav a {
@@ -78,6 +85,7 @@
         box-shadow: 0 6px 12px rgba(0,0,0,0.1);
         text-align: center;
         transition: transform 0.3s, box-shadow 0.3s;
+        min-height: 320px;
     }
 
     .service-card:hover {
@@ -131,11 +139,71 @@
         padding: 25px;
     }
 
+    /* Carrusel */
+    .carousel {
+        position: relative;
+        width: 33.33%;
+        max-width: 300px;
+        margin: 40px auto;
+        overflow: hidden;
+        border-radius: 10px;
+    }
+
+    .track {
+        display: flex;
+        transition: transform 1s ease;
+    }
+
+    .slide {
+        flex: 0 0 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .slide img {
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: contain;
+    }
+
+    .dots {
+        position: absolute;
+        bottom: 10px;
+        left: 0; right: 0;
+        display: flex;
+        justify-content: center;
+        gap: 6px;
+    }
+
+    .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        border: none;
+        background: rgba(0,0,0,0.3);
+        cursor: pointer;
+    }
+
+    .dot[aria-current="true"] { background: #000; }
+
     @media(max-width: 700px){
         .services {
             flex-direction: column;
             align-items: center;
         }
+        nav {
+            flex-direction: column;
+            gap: 10px;
+        }
+        header {
+            padding: 60px 20px;
+        }
+        .carousel { width: 50%; }
+    }
+    @media(max-width: 480px){ 
+        .carousel { width: 80%; }
     }
 </style>
 </head>
@@ -143,10 +211,28 @@
 
     <!-- HEADER -->
     <header>
-          <img src="logo.png" alt="Logo 11WM Ingeniería">
+        <img src="logo.png" alt="Logo 11WM Ingeniería">
         <h1>11WM Ingeniería</h1>
         <p>Soluciones profesionales en estructuras y mediciones dinámicas</p>
     </header>
+
+    <!-- CARRUSEL -->
+    <div class="carousel">
+        <div class="track" id="track">
+            <div class="slide"><img src="1.jpg" alt="Foto 1"></div>
+            <div class="slide"><img src="2.jpg" alt="Foto 2"></div>
+            <div class="slide"><img src="3.jpg" alt="Foto 3"></div>
+            <div class="slide"><img src="4.jpg" alt="Foto 4"></div>
+            <div class="slide"><img src="5.jpg" alt="Foto 5"></div>
+        </div>
+        <div class="dots">
+            <button class="dot" data-index="0" aria-current="true"></button>
+            <button class="dot" data-index="1"></button>
+            <button class="dot" data-index="2"></button>
+            <button class="dot" data-index="3"></button>
+            <button class="dot" data-index="4"></button>
+        </div>
+    </div>
 
     <!-- NAVIGATION -->
     <nav>
@@ -212,7 +298,33 @@
         <p>&copy; 2025 11WM Ingeniería. Todos los derechos reservados.</p>
     </footer>
 
+<script>
+const track = document.getElementById('track');
+const dots = document.querySelectorAll('.dot');
+let index = 0;
+const total = 5;
+
+function updateCarousel() {
+    track.style.transform = `translateX(-${index*100}%)`;
+    dots.forEach((dot,i) => dot.setAttribute('aria-current', i===index));
+}
+
+function nextSlide() {
+    index = (index + 1) % total;
+    updateCarousel();
+}
+
+setInterval(nextSlide, 5000);
+
+dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => {
+        index = i;
+        updateCarousel();
+    });
+});
+
+updateCarousel();
+</script>
+
 </body>
 </html>
-
-
