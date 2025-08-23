@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>11WM Ingeniería</title>
+<link rel="icon" type="image/png" href="favicon.png"> <!-- Favicon agregado -->
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
@@ -114,7 +115,7 @@
         box-shadow: 0 10px 20px rgba(0,0,0,0.15);
     }
     .service-card i {
-        font-size: 74px; /* aumentado al tamaño del logo dinámico */
+        font-size: 74px;
         color: #0059b3;
         margin-bottom: 15px;
     }
@@ -123,7 +124,7 @@
     .icon {
         width: 74px;
         height: 74px;
-        margin: 0 auto 15px; /* espacio correcto debajo del logo */
+        margin: 0 auto 15px;
     }
     .icon svg {
         width: 100%;
@@ -143,7 +144,6 @@
     }
     @keyframes move { to { stroke-dashoffset: -360 } }
 
-    /* ELIMINAR margin-top extra del h3 para alineación */
     .service-card h3 {
         margin-top: 0;
     }
@@ -252,19 +252,16 @@
 </head>
 <body>
 
-    <!-- BOTÓN FLOTANTE CON ICONO -->
     <a href="mailto:rodriguez@11wmi.com" class="email-btn">
         <i class="fas fa-envelope"></i> Enviar correo-e
     </a>
 
-    <!-- HEADER -->
     <header>
         <img src="logo.png" alt="Logo 11WM Ingeniería">
         <h1>11WM Ingeniería</h1>
         <p>Soluciones profesionales en estructuras y mediciones dinámicas</p>
     </header>
 
-    <!-- CARRUSEL -->
     <div class="carousel">
         <div class="track" id="track">
             <div class="slide"><img src="1.jpg" alt="Foto 1"></div>
@@ -282,7 +279,6 @@
         </div>
     </div>
 
-    <!-- NAVIGATION -->
     <nav>
         <a href="#inicio">Inicio</a>
         <a href="#servicios">Servicios</a>
@@ -290,7 +286,6 @@
         <a href="#contacto">Contacto</a>
     </nav>
 
-    <!-- HERO / INTRO -->
     <section id="inicio">
         <h2>Bienvenido a 11WM Ingeniería</h2>
         <p style="max-width:700px; margin:0 auto; text-align:center;">
@@ -298,7 +293,6 @@
         </p>
     </section>
 
-    <!-- SERVICES -->
     <section id="servicios">
         <h2>Servicios</h2>
         <div class="services">
@@ -308,7 +302,6 @@
                 <p>Análisis y diseño de estructuras para todo tipo de edificaciones, cumpliendo con normas vigentes y garantizando seguridad y eficiencia.</p>
             </div>
             <div class="service-card">
-                <!-- LOGO DINÁMICO -->
                 <div class="icon" aria-hidden="true">
                     <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                         <circle cx="50" cy="50" r="46" class="stroke" stroke-width="4" fill="none" />
@@ -324,7 +317,6 @@
         </div>
     </section>
 
-    <!-- ABOUT US -->
     <section id="nosotros">
         <h2>Nosotros</h2>
         <p style="max-width:700px; margin:0 auto; text-align:center;">
@@ -332,7 +324,6 @@
         </p>
     </section>
 
-    <!-- CONTACT -->
     <section id="contacto">
         <h2>Contacto</h2>
         <p style="text-align:center; margin-bottom:30px;">
@@ -350,13 +341,11 @@
         </p>
     </section>
 
-    <!-- FOOTER -->
     <footer>
         <p>&copy; 2025 11WM Ingeniería. Todos los derechos reservados.</p>
     </footer>
 
 <script>
-// Carrusel
 const track = document.getElementById('track');
 const dots = document.querySelectorAll('.dot');
 let index = 0;
@@ -383,7 +372,6 @@ dots.forEach((dot, i) => {
 
 updateCarousel();
 
-// Botón flotante
 let lastScroll = 0;
 const emailBtn = document.querySelector('.email-btn');
 
