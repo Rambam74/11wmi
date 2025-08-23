@@ -98,7 +98,6 @@
         flex-wrap: wrap;
         justify-content: center;
         gap: 30px;
-        align-items: flex-start; /* alineamos las tarjetas al mismo nivel */
     }
     .service-card {
         background: white;
@@ -109,16 +108,13 @@
         text-align: center;
         transition: transform 0.3s, box-shadow 0.3s;
         min-height: 320px;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
     }
     .service-card:hover {
         transform: translateY(-5px);
         box-shadow: 0 10px 20px rgba(0,0,0,0.15);
     }
     .service-card i {
-        font-size: 74px; /* tamaño del logo dinámico */
+        font-size: 74px; /* aumentado al tamaño del logo dinámico */
         color: #0059b3;
         margin-bottom: 15px;
     }
@@ -206,7 +202,7 @@
     .dot[aria-current="true"] { background: #000; }
 
     /* LOGO DINÁMICO */
-    .icon{width:74px; height:74px; margin:25px auto 15px;} /* margin-top ajustado para bajar */
+    .icon{width:74px; height:74px; margin:0 auto 15px;}
     .icon svg{width:100%; height:100%; display:block}
     .stroke{stroke:#004080;}
     .fill{fill:#004080;}
