@@ -51,7 +51,12 @@
         text-decoration: none;
         font-weight: bold;
         z-index: 1000;
+        display: flex;
+        align-items: center;
         transition: opacity 0.5s, transform 0.5s;
+    }
+    .email-btn i {
+        margin-right: 8px;
     }
     .email-btn.hide {
         opacity: 0;
@@ -218,8 +223,10 @@
 </head>
 <body>
 
-    <!-- BOTÓN FLOTANTE -->
-    <a href="mailto:rrodriguezr@ipn.mx" class="email-btn">Enviar correo-e</a>
+    <!-- BOTÓN FLOTANTE CON ICONO -->
+    <a href="mailto:rrodriguezr@ipn.mx" class="email-btn">
+        <i class="fas fa-envelope"></i> Enviar correo-e
+    </a>
 
     <!-- HEADER -->
     <header>
