@@ -119,9 +119,33 @@
         margin-bottom: 15px;
     }
 
-    /* MODIFICACIÓN: Baja línea debajo del logo dinámico */
+    /* LOGO DINÁMICO */
+    .icon {
+        width: 74px;
+        height: 74px;
+        margin: 0 auto 15px; /* espacio correcto debajo del logo */
+    }
+    .icon svg {
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+    .stroke { stroke: #004080; }
+    .fill { fill: #004080; }
+    .wave {
+        stroke: #004080;
+        stroke-width: 4;
+        fill: none;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-dasharray: 180;
+        animation: move 4s linear infinite;
+    }
+    @keyframes move { to { stroke-dashoffset: -360 } }
+
+    /* ELIMINAR margin-top extra del h3 para alineación */
     .service-card h3 {
-        margin-top: 15px;
+        margin-top: 0;
     }
 
     /* FORMULARIO */
@@ -205,22 +229,6 @@
         cursor: pointer;
     }
     .dot[aria-current="true"] { background: #000; }
-
-    /* LOGO DINÁMICO */
-    .icon{width:74px; height:74px; margin:0 auto 15px;}
-    .icon svg{width:100%; height:100%; display:block}
-    .stroke{stroke:#004080;}
-    .fill{fill:#004080;}
-    .wave{
-      stroke:#004080;
-      stroke-width:4;
-      fill:none;
-      stroke-linecap:round;
-      stroke-linejoin:round;
-      stroke-dasharray:180;
-      animation: move 4s linear infinite;
-    }
-    @keyframes move{to{stroke-dashoffset:-360}}
 
     /* RESPONSIVE */
     @media(max-width: 700px){
