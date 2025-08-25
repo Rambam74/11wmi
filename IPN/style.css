@@ -9,7 +9,7 @@ body, html {
 nav {
     position: sticky; /* Fija el menú al hacer scroll */
     top: 0;
-    background-color: #004080;
+    background-color: #800000;
     padding: 10px 20px;
     z-index: 1000;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
@@ -37,7 +37,7 @@ nav a:hover {
 
 /* Títulos principales */
 h1 {
-    color: #004080;
+    color: #800000;
     margin-bottom: 20px;
 }
 
